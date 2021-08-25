@@ -1,0 +1,154 @@
+CREATE SCHEMA `school` ; 
+
+CREATE TABLE `school`.`student` (
+  `stu_id` INT NOT NULL,
+  `stu_name` VARCHAR(45) NOT NULL,
+  `stu_contact` INT NOT NULL,
+  `stu_gender` VARCHAR(45) NULL,
+  `stu_course` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`stu_id`),
+  UNIQUE INDEX `stu_contact_UNIQUE` (`stu_contact` ASC) VISIBLE);
+
+ALTER TABLE `school`.`student` 
+ADD COLUMN `stu_email` VARCHAR(45) NOT NULL AFTER `stu_course`,
+ADD UNIQUE INDEX `stu_email_UNIQUE` (`stu_email` ASC) VISIBLE;
+;
+
+
+
+
+CREATE TABLE `school`.`teacher` (
+  `tec_id` INT NOT NULL,
+  `tec_name` VARCHAR(45) NOT NULL,
+  `tec_contact` INT NOT NULL,
+  `tec_gender` VARCHAR(45) NOT NULL,
+  `tech_email` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`tec_id`),
+  UNIQUE INDEX `tec_contact_UNIQUE` (`tec_contact` ASC) VISIBLE,
+  UNIQUE INDEX `tech_email_UNIQUE` (`tech_email` ASC) VISIBLE);
+
+CREATE TABLE `school`.`parents` (
+  `par_id` INT NOT NULL,
+  `par_name` VARCHAR(45) NOT NULL,
+  `par_contact` INT NOT NULL,
+  PRIMARY KEY (`par_id`));
+
+CREATE TABLE `school`.`course` (
+  `cou_id` INT NOT NULL,
+  `cou_name` VARCHAR(45) NOT NULL,
+  `stu_id` INT NOT NULL,
+  PRIMARY KEY (`cou_id`));
+
+CREATE TABLE `school`.`details` (
+  `det_tenth mark` INT NOT NULL,
+  `det_twelth mark` INT NOT NULL,
+  `det_cutoff` INT NOT NULL,
+  `stu_id` INT NOT NULL,
+  PRIMARY KEY (`det_cutoff`));
+
+INSERT INTO `school`.`student` (`stu_id`, `stu_name`, `stu_contact`, `stu_gender`, `stu_course`, `stu_email`) VALUES ('1', 'ram', '678954', 'male', 'ECE', 'ram@gmail.com');
+INSERT INTO `school`.`student` (`stu_id`, `stu_name`, `stu_contact`, `stu_gender`, `stu_course`, `stu_email`) VALUES ('2', 'sam', '678923', 'male', 'ECE', 'sam@gmail.com');
+INSERT INTO `school`.`student` (`stu_id`, `stu_name`, `stu_contact`, `stu_gender`, `stu_course`, `stu_email`) VALUES ('3', 'ben', '467946', 'male', 'MECH', 'ben@gmail.com');
+INSERT INTO `school`.`student` (`stu_id`, `stu_name`, `stu_contact`, `stu_gender`, `stu_course`, `stu_email`) VALUES ('4', 'tom', '757908', 'male', 'MECH', 'tom@gmail.com');
+INSERT INTO `school`.`student` (`stu_id`, `stu_name`, `stu_contact`, `stu_gender`, `stu_course`, `stu_email`) VALUES ('5', 'arun', '458790', 'male', 'CSE', 'arun@gmail.com');
+INSERT INTO `school`.`student` (`stu_id`, `stu_name`, `stu_contact`, `stu_gender`, `stu_course`, `stu_email`) VALUES ('6', 'sarath', '432134', 'male', 'CSE', 'sarath@gmail.com');
+INSERT INTO `school`.`student` (`stu_id`, `stu_name`, `stu_contact`, `stu_gender`, `stu_course`, `stu_email`) VALUES ('7', 'akash', '675421', 'male', 'IT', 'akash@gmail.com');
+INSERT INTO `school`.`student` (`stu_id`, `stu_name`, `stu_contact`, `stu_gender`, `stu_course`, `stu_email`) VALUES ('8', 'anand', '654381', 'male', 'IT', 'anand@gmail.com');
+INSERT INTO `school`.`student` (`stu_id`, `stu_name`, `stu_contact`, `stu_gender`, `stu_course`, `stu_email`) VALUES ('9', 'vinoth', '786599', 'male', 'EEE', 'vinoth@gmail.com');
+INSERT INTO `school`.`student` (`stu_id`, `stu_name`, `stu_contact`, `stu_gender`, `stu_course`, `stu_email`) VALUES ('10', 'yuvi', '897654', 'male', 'EEE', 'yuvi@gmail.com');
+
+INSERT INTO `school`.`teacher` (`tec_id`, `tec_name`, `tec_contact`, `tec_gender`, `tech_email`) VALUES ('101', 'vimal', '678921', 'male', 'vimal@gmail.com');
+INSERT INTO `school`.`teacher` (`tec_id`, `tec_name`, `tec_contact`, `tec_gender`, `tech_email`) VALUES ('102', 'kamal', '749576', 'male', 'kamal@gmail.com');
+INSERT INTO `school`.`teacher` (`tec_id`, `tec_name`, `tec_contact`, `tec_gender`, `tech_email`) VALUES ('103', 'malar', '742859', 'female', 'malar@gmail.com');
+INSERT INTO `school`.`teacher` (`tec_id`, `tec_name`, `tec_contact`, `tec_gender`, `tech_email`) VALUES ('104', 'pooja', '987654', 'female ', 'pooja@gmail.com');
+INSERT INTO `school`.`teacher` (`tec_id`, `tec_name`, `tec_contact`, `tec_gender`, `tech_email`) VALUES ('105', 'priya', '765432', 'female', 'priya@gmail.com');
+INSERT INTO `school`.`teacher` (`tec_id`, `tec_name`, `tec_contact`, `tec_gender`, `tech_email`) VALUES ('106', 'ajith', '748596', 'male', 'ajith@gmail.com');
+
+INSERT INTO `school`.`parents` (`par_id`, `par_name`, `par_contact`) VALUES ('201', 'kamalesh', '343434');
+INSERT INTO `school`.`parents` (`par_id`, `par_name`, `par_contact`) VALUES ('202', 'bubesh', '434343');
+INSERT INTO `school`.`parents` (`par_id`, `par_name`, `par_contact`) VALUES ('203', 'aadhavan', '235479');
+INSERT INTO `school`.`parents` (`par_id`, `par_name`, `par_contact`) VALUES ('204', 'aaqib', '234567');
+INSERT INTO `school`.`parents` (`par_id`, `par_name`, `par_contact`) VALUES ('205', 'abinesh', '123456');
+INSERT INTO `school`.`parents` (`par_id`, `par_name`, `par_contact`) VALUES ('206', 'aditya', '456789');
+INSERT INTO `school`.`parents` (`par_id`, `par_name`, `par_contact`) VALUES ('207', 'ajith', '918385');
+INSERT INTO `school`.`parents` (`par_id`, `par_name`, `par_contact`) VALUES ('208', 'kannan', '567483');
+INSERT INTO `school`.`parents` (`par_id`, `par_name`, `par_contact`) VALUES ('209', 'sasi', '567438');
+INSERT INTO `school`.`parents` (`par_id`, `par_name`, `par_contact`) VALUES ('210', 'prem', '222444');
+
+ALTER TABLE `school`.`course` 
+CHANGE COLUMN `stu_id` `no of year` INT NOT NULL ;
+
+INSERT INTO `school`.`course` (`cou_id`, `cou_name`, `no of year`) VALUES ('401', 'ECE', '4');
+INSERT INTO `school`.`course` (`cou_id`, `cou_name`, `no of year`) VALUES ('402', 'MECH', '4');
+INSERT INTO `school`.`course` (`cou_id`, `cou_name`, `no of year`) VALUES ('403', 'CSE', '4');
+INSERT INTO `school`.`course` (`cou_id`, `cou_name`, `no of year`) VALUES ('404', 'IT', '4');
+INSERT INTO `school`.`course` (`cou_id`, `cou_name`, `no of year`) VALUES ('405', 'EEE', '4');
+
+INSERT INTO `school`.`details` (`det_tenth mark`, `det_twelth mark`, `det_cutoff`, `stu_id`) VALUES ('421', '987', '156', '1');
+INSERT INTO `school`.`details` (`det_tenth mark`, `det_twelth mark`, `det_cutoff`, `stu_id`) VALUES ('453', '1102', '170', '2');
+INSERT INTO `school`.`details` (`det_tenth mark`, `det_twelth mark`, `det_cutoff`, `stu_id`) VALUES ('467', '1005', '145', '3');
+INSERT INTO `school`.`details` (`det_tenth mark`, `det_twelth mark`, `det_cutoff`, `stu_id`) VALUES ('483', '1034', '176', '4');
+INSERT INTO `school`.`details` (`det_tenth mark`, `det_twelth mark`, `det_cutoff`, `stu_id`) VALUES ('492', '1056', '153', '5');
+INSERT INTO `school`.`details` (`det_tenth mark`, `det_twelth mark`, `det_cutoff`, `stu_id`) VALUES ('437', '1078', '123', '6');
+INSERT INTO `school`.`details` (`det_tenth mark`, `det_twelth mark`, `det_cutoff`, `stu_id`) VALUES ('450', '890', '190', '7');
+INSERT INTO `school`.`details` (`det_tenth mark`, `det_twelth mark`, `det_cutoff`, `stu_id`) VALUES ('460', '1100', '147', '8');
+INSERT INTO `school`.`details` (`det_tenth mark`, `det_twelth mark`, `det_cutoff`, `stu_id`) VALUES ('472', '1046', '180', '9');
+INSERT INTO `school`.`details` (`det_tenth mark`, `det_twelth mark`, `det_cutoff`, `stu_id`) VALUES ('444', '1056', '111', '10');
+
+
+ALTER TABLE `school`.`student` 
+ADD COLUMN `par_id` INT NOT NULL AFTER `stu_email`,
+ADD COLUMN `tec_id` INT NOT NULL AFTER `par_id`,
+ADD COLUMN `cou_id` INT NOT NULL AFTER `tec_id`;
+
+UPDATE `school`.`student` SET `par_id` = '201', `tec_id` = '101', `cou_id` = '401' WHERE (`stu_id` = '1');
+UPDATE `school`.`student` SET `par_id` = '202', `tec_id` = '102', `cou_id` = '401' WHERE (`stu_id` = '2');
+UPDATE `school`.`student` SET `par_id` = '203', `tec_id` = '103', `cou_id` = '402' WHERE (`stu_id` = '3');
+UPDATE `school`.`student` SET `par_id` = '204', `tec_id` = '104', `cou_id` = '402' WHERE (`stu_id` = '4');
+UPDATE `school`.`student` SET `par_id` = '205', `tec_id` = '105', `cou_id` = '403' WHERE (`stu_id` = '5');
+UPDATE `school`.`student` SET `par_id` = '206', `tec_id` = '106', `cou_id` = '403' WHERE (`stu_id` = '6');
+UPDATE `school`.`student` SET `par_id` = '207', `tec_id` = '101', `cou_id` = '404' WHERE (`stu_id` = '7');
+UPDATE `school`.`student` SET `par_id` = '208', `tec_id` = '102', `cou_id` = '404' WHERE (`stu_id` = '8');
+UPDATE `school`.`student` SET `par_id` = '209', `tec_id` = '103', `cou_id` = '405' WHERE (`stu_id` = '9');
+UPDATE `school`.`student` SET `par_id` = '210', `tec_id` = '104', `cou_id` = '405' WHERE (`stu_id` = '10');
+
+ALTER TABLE `school`.`student` 
+ADD INDEX `par_id_idx` (`par_id` ASC) VISIBLE;
+;
+ALTER TABLE `school`.`student` 
+ADD CONSTRAINT `par_id`
+  FOREIGN KEY (`par_id`)
+  REFERENCES `school`.`parents` (`par_id`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
+ALTER TABLE `school`.`student` 
+ADD INDEX `tec_id_idx` (`tec_id` ASC) VISIBLE;
+;
+ALTER TABLE `school`.`student` 
+ADD CONSTRAINT `tec_id`
+  FOREIGN KEY (`tec_id`)
+  REFERENCES `school`.`teacher` (`tec_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;  
+
+ALTER TABLE `school`.`student` 
+ADD INDEX `cou_id_idx` (`cou_id` ASC) VISIBLE;
+;
+ALTER TABLE `school`.`student` 
+ADD CONSTRAINT `cou_id`
+  FOREIGN KEY (`cou_id`)
+  REFERENCES `school`.`course` (`cou_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `school`.`details` 
+ADD INDEX `stu_id_idx` (`stu_id` ASC) VISIBLE;
+;
+ALTER TABLE `school`.`details` 
+ADD CONSTRAINT `stu_id`
+  FOREIGN KEY (`stu_id`)
+  REFERENCES `school`.`student` (`stu_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
